@@ -1,2 +1,18 @@
-<h1> Welcome to my Awesome App</h1>
-<%=  link_to "Sign up",new_user_session_path, class: 'btn btn-primary' %>
+
+<br>
+<div class="jumbotron">
+  
+  <% if current_user %>
+  <p>
+    <h2>Welcome <%= current_user.email %>! </h2>
+
+      <%= link_to "Sign Out", destroy_user_session_path, class: 'btn btn-primary', method: :delete %>
+  </p>
+  <% else %>
+  <h1> Welcome to my Awesome App</h1>
+<h2> Testing to make sure this works! </h2>
+<%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
+<%=  link_to "Sign up",new_user_registration_path, class: 'btn btn-primary' %>
+
+      <% end %>
+</div>
